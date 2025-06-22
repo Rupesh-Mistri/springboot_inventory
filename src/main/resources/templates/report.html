@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+<body>
+    <div th:include="header"></div>
+REPORT
+<span style="color:red" th:text="${successMessage}"></span>
+    <form action="/report_post" method="post">
+        From Date
+        <input type="date" name="from_date" th:value="${fromdate}">
+        
+        To Date
+        <input type="date" name="to_date" th:value="${todate}">
+        
+        <button type="submit" name="generate_btn">Generate Report</button>
+    </form>
+
+    <div th:if="${item_list != null}">
+        <table>
+            <tr>
+                <td>Item Name</td>
+                <td>Item Rate</td>
+                <td>Action</td>
+            </tr>
+
+            <tr th:each="item: ${item_list}">
+                <td th:text="${item.item_name}"></td>
+                <td th:text="${item.item_rate}"></td>
+                <td>
+                    <a th:href="@{/item_edit/{id}(id=${item.id})}" class="btn btn-primary">Update</a>
+                    <a th:href="@{/item_delete/{id}(id=${item.id})}" class="btn btn-primary">Delete</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

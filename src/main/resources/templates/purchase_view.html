@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<div th:include="header"></div>
+
+
+item list
+<a href="/item_insert" class="btn btn-primary">Add Item</a>
+
+Purchase  Details
+<table>
+	<tr>
+	<td>invoice_no</td>
+	<td>invoice_date</td>
+	</tr>
+	
+	<tr>
+		<td th:text="${puchase_basic.invoice_no}"></td>
+		<td th:text="${puchase_basic.invoice_date}"></td>
+
+	</tr>
+</table>
+
+Item List
+     <table >
+		 <tr>
+			 <td>SN</td>
+			 <td>Item Name</td>
+			 <td>Rate</td>
+			 <td>Quantity</td>
+			 <td>Total</td>
+		 </tr>
+		 <tr th:each="item,iterator  : ${puchase_details}">
+			 <td th:text="${iterator.index}"></td>
+			 <td th:text="${item.item_id.item_name}"></td>
+			 <td th:text="${item.item_rate}"></td>
+			 <td th:text="${item.quantity}"></td>
+			 <td th:text="${item.item_rate*item.quantity} "></td>
+		 </tr>
+	 </table>
+ 
+
+</body>
+</html>

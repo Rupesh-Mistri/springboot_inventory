@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<div th:include="header"></div>
+
+	
+item Edit 
+
+<form th:action="@{/item_edit/{id}(id=${item_details.id})}" method="post">
+Item Name
+<input type="text" name="item_name" id="item_rate" th:field="*{item_details.item_name}" >
+
+Rate
+<input type="text" name="item_rate" id="item_rate"  th:field="*{item_details.item_rate}">
+
+<input type="submit" value="Submit">
+</form>
+</body>
+</html>

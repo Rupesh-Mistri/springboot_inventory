@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<div th:include="header"></div>
+
+
+<a  href="/purchase_insert" >Add Purchase</a>
+<table>
+	<tr>
+	<td>Invoice No</td>
+	<td>Invoice Date</td>
+	</tr>
+	
+	<tr th:each="pur: ${puchase_list}">
+		<td th:text="${pur.invoice_no}"></td>
+		<td th:text="${pur.invoice_date}"></td>
+		<td>
+			<a th:href="@{/purchase_view/{id}(id=${pur.id})}" class="btn btn-primary">View</a>
+		</td>
+	</tr>
+</table>
+
+</body>
+</html>

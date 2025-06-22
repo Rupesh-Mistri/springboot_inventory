@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<div th:include="header"></div>
+
+	
+item insert 
+
+<form action="/item_insertp" method="post">
+Item Name
+<input type="text" name="item_name" id="item_rate" >
+
+Rate
+<input type="number" name="item_rate" id="item_rate" >
+
+<input type="submit" value="Submit">
+</form>
+</body>
+</html>

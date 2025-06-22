@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<div th:include="header"></div>
+
+
+Supplier list
+<a href="/supplier_insert" class="btn btn-primary">Add Item</a>
+<table border="1">
+	<tr>
+	<td>Supplier Name</td>
+	<td>Address </td>
+	<td>Email </td>
+	<td>Mobile </td>
+	<td>Action </td>
+	</tr>
+	
+	<tr th:each="supplier: ${supplier_list}">
+		<td th:text="${supplier.supplier_name}"></td>
+		<td th:text="${supplier.address}"></td>
+		<td th:text="${supplier.email}"></td>
+		<td th:text="${supplier.mobile}"></td>
+		<td>
+			<a th:href="@{/supplier_edit/{id}(id=${supplier.id})}" class="btn btn-primary">Update</a>
+			<a th:href="@{/supplier_delete/{id}(id=${supplier.id})}" class="btn btn-primary">Delete</a>
+		</td>
+	</tr>
+	
+</table>
+
+</body>
+</html>

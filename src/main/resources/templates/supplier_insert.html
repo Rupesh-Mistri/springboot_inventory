@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<div th:include="header"></div>
+
+	
+	Supplier Insert 
+	
+
+<form action="/supplier_insertp" method="post">
+supplier Name
+<input type="text" name="supplier_name" id="supplier_name" >
+
+Address
+<input type="text" name="address" id="address" >
+
+Mobile No.
+<input type="text" name="mobile" id="mobile"maxlength="10" >
+
+Email
+<input type="text" name="email" id="email" >
+
+<input type="submit" value="Submit">
+</form>
+</body>
+</html>

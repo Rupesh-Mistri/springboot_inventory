@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<div th:include="header"></div>
+
+	
+New Sale
+
+<form action="/sale_insert_post" method="post" >
+	
+	
+	
+	Invoce No
+	<input type="text" name="invoice_no" id="invoice_no">
+	
+	Invoice Date
+	<input type="date" name="invoice_date" id="invoice_date">
+	
+	Customer Name
+	<input type="text" name="customer_name" id="customer_name_id">
+	  <!--<select name="supplier_id" id="supplier_id">
+			<option>Select</option>
+            <option th:each="supp : ${supplier_list}" th:text="${supp.name}" th:value="${supp.id}"></option>
+        </select> -->
+	Address
+	<input type="text" name="address" id="address">
+	
+	
+	<br>-----------------------------------
+	
+	<br>
+	item_name
+        <select name="item_name" id="item_name">
+			<option>Select</option>
+            <option th:each="item : ${item_list}" th:text="${item.item_name}" th:value="${item.id}"></option>
+        </select>
+        
+    Item rate 
+    	  <input type="text" name="item_rate" id="item_rate" >  
+    	  
+    Quantity	  
+         <input type="text" name="quantity" id="quantity">  
+        
+     <br>   
+     <input type="submit" name="ADD" value="ADD">   
+     <br>
+     <input type="submit" name="SAVE" value="SAVE">   
+     
+     <table >
+		 <tr>
+			 <td>SN</td>
+			 <td>Item Name</td>
+			 <td>Rate</td>
+			 <td>Quantity</td>
+			 <td>Total</td>
+		 </tr>
+		 <tr th:each="item,iterator  : ${temp_item_list}">
+			 <td th:text="${iterator.index}"></td>
+			<td th:text="${item.item.item_name}"></td> <!-- -->
+			 <td th:text="${item.item_rate}"></td>
+			 <td th:text="${item.quantity}"></td>
+			 <td th:text="${item.item_rate*item.quantity} "></td>
+		 </tr>
+	 </table>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<div th:include="header"></div>
+
+	
+	Supplier Edit 
+	
+
+<form th:action="@{/supplier_edit/{id}(id=${supplier.id})}" method="post">
+supplier Name
+<input type="text" name="supplier_name" id="supplier_name" th:field="*{supplier.supplier_name}" >
+
+Address
+<input type="text" name="address" id="address" th:field="*{supplier.address}" >
+
+Mobile No.
+<input type="text" name="mobile" id="mobile"  th:field="*{supplier.mobile}">
+
+Email
+<input type="text" name="email" id="email"  th:field="*{supplier.email}">
+
+<input type="submit" value="Submit">
+</form>
+</body>
+</html>
