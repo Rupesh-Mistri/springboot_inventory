@@ -22,9 +22,9 @@ import com.inventory.service.item_mode_Service;
 
 import jakarta.servlet.http.HttpServletRequest;
 
-@Controller
-// @RestController
-// @CrossOrigin(origins = "http://localhost:3000")
+//@Controller
+@RestController
+@CrossOrigin(origins = "http://localhost:3000")
 public class item_master_controller {
 
 	private item_mode_Service item_mode_service;
@@ -44,23 +44,8 @@ public class item_master_controller {
 		return "index";
 	}
 
-	@GetMapping("/item_list")
-	public String item_list(Model model) {
-		System.out.println("Print all item records");
-
-		List<item_model> items = item_mode_service.getAll_Item();
-		for (item_model temp_item : items) {
-			System.out.println(temp_item);
-		}
-
-		model.addAttribute("item_list", item_mode_service.getAll_Item());
-		return "item_list";
-
-	}
-
 	// @GetMapping("/item_list")
-	// // @CrossOrigin(origins = "http://localhost:3000")
-	// public List<item_model> item_list(Model model) {
+	// public String item_list(Model model) {
 	// System.out.println("Print all item records");
 
 	// List<item_model> items = item_mode_service.getAll_Item();
@@ -68,10 +53,25 @@ public class item_master_controller {
 	// System.out.println(temp_item);
 	// }
 
-	// // model.addAttribute("item_list",item_mode_service.getAll_Item());
-	// return items;
+	// model.addAttribute("item_list", item_mode_service.getAll_Item());
+	// return "item_list";
 
 	// }
+
+	@GetMapping("/item_list")
+	// @CrossOrigin(origins = "http://localhost:3000")
+	public List<item_model> item_list(Model model) {
+		System.out.println("Print all item records");
+
+		List<item_model> items = item_mode_service.getAll_Item();
+		for (item_model temp_item : items) {
+			System.out.println(temp_item);
+		}
+
+		// model.addAttribute("item_list",item_mode_service.getAll_Item());
+		return items;
+
+	}
 
 	@GetMapping("/item_insert")
 	public String item_insert(Model model) {
